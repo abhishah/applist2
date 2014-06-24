@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/open"
+        android:icon="@drawable/open1"
+        android:visible="true"
+        android:showAsAction="always"/>
+     <item android:id="@+id/uninstall"
+        android:icon="@drawable/trash"
+        android:visible="true"
+        android:showAsAction="always"/>
+     <item android:id="@+id/extract"
+        android:icon="@drawable/open"
+        android:visible="true"
+        android:showAsAction="always"/>
+      <item android:id="@+id/exit"
+        android:icon="@drawable/exit"
+        android:visible="true"
+        android:showAsAction="always"/>
+
+</menu>
