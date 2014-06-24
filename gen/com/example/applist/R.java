@@ -34,11 +34,12 @@ public final class R {
         public static final int and_version=0x7f08000d;
         public static final int andversion=0x7f08000e;
         public static final int apk=0x7f080001;
+        public static final int appinfo=0x7f080017;
         public static final int applabel=0x7f080002;
         public static final int appname=0x7f080000;
-        public static final int exit=0x7f08001a;
+        public static final int exit=0x7f08001b;
         public static final int exit1=0x7f080016;
-        public static final int extract=0x7f080019;
+        public static final int extract=0x7f08001a;
         public static final int features=0x7f080007;
         public static final int genapk=0x7f080015;
         public static final int genfile=0x7f080014;
@@ -46,7 +47,7 @@ public final class R {
         public static final int installed=0x7f08000f;
         public static final int last_modify=0x7f080012;
         public static final int modified=0x7f080011;
-        public static final int open=0x7f080017;
+        public static final int open=0x7f080019;
         public static final int pack_name=0x7f080003;
         public static final int package_name=0x7f080004;
         public static final int path=0x7f08000c;
@@ -65,8 +66,9 @@ public final class R {
     }
     public static final class menu {
         public static final int apk=0x7f070000;
-        public static final int info=0x7f070001;
-        public static final int main=0x7f070002;
+        public static final int context=0x7f070001;
+        public static final int info=0x7f070002;
+        public static final int main=0x7f070003;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;

@@ -17,6 +17,7 @@ import android.preference.PreferenceManager;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -129,10 +130,8 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-		menu.add(0, 1, 0, "view app info");
-		menu.add(0, 2, 2, "delete app");
-		menu.add(0, 3, 3, "open app");
-
+		MenuInflater mi=getMenuInflater();
+		mi.inflate(R.menu.context,menu);
 	}
 
 	@Override
@@ -143,13 +142,13 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
 		ResolveInfo localResolveInfo = (ResolveInfo) getListAdapter().getItem(
 				localAdapterContextMenuInfo.position);
 		switch (item.getItemId()) {
-		case 1:
+		case R.id.appinfo:
 			showInstalledAppDetails(localResolveInfo);
 			break;
-		case 2:
+		case R.id.uninstall:
 			uninstallPackage(localResolveInfo);
 			break;
-		case 3:
+		case R.id.open:
 			openApp(localResolveInfo);
 			break;
 		}
@@ -159,7 +158,7 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
 
 	private void openApp(ResolveInfo localResolveInfo) {
 		// TODO Auto-generated method stub
-		String pack = localResolveInfo.activityInfo.packageName;
+		String pack = localResolveInfo.activityInfo.name;
 		Intent local = new Intent("android.intent.action.MAIN");
 		local.setClassName(localResolveInfo.activityInfo.packageName, pack);
 		startActivity(local);
