@@ -5,11 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.annotation.SuppressLint;
-import android.app.ListActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageInfo;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 @SuppressLint("NewApi")
-public class ApkInfo extends ListActivity {
+public class ApkInfo extends Activity {
 	TextView appLabel, packageName, version, features;
 	TextView permissions, andVersion, installed, lastModify, path;
 	PackageInfo packageInfo;
@@ -58,9 +57,8 @@ public class ApkInfo extends ListActivity {
 			Toast.makeText(getBaseContext(), i, Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.uninstall:
-			ResolveInfo localResolveInfo = (ResolveInfo) ApkInfo.this
-					.getListAdapter().getItem(featureId);
-			uninstallPackage(localResolveInfo);
+					//.getListAdapter().getItem(featureId);
+			uninstallPackage(packageName.toString());
 			Toast.makeText(getBaseContext(), "Under Construction ",
 					Toast.LENGTH_SHORT).show();
 			break;
@@ -161,9 +159,9 @@ public class ApkInfo extends ListActivity {
 						"ApkExtractor").getAbsolutePath());
 	}
 
-	private void uninstallPackage(ResolveInfo paramResolveInfo) {
+	private void uninstallPackage(String paramResolveInfo) {
 		Uri localUri = Uri.fromParts("package",
-				paramResolveInfo.activityInfo.packageName, null);
+				paramResolveInfo, null);
 		Intent localIntent = new Intent("android.intent.action.DELETE");
 		localIntent.setData(localUri);
 		startActivity(localIntent);

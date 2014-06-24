@@ -44,10 +44,10 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
 				packageList1.add(pi);
 			}
 		}
-		apkList = (ListView) findViewById(R.id.applist);
+		apkList = (ListView) findViewById(android.R.id.list);
 		apkList.setAdapter(new ApkAdapter(this, packageList1, packagemanager));
 		apkList.setOnItemClickListener(this);
-		//registerForContextMenu(apkList);
+		registerForContextMenu(apkList);
 	}
 
 	private boolean isSystemPackage(PackageInfo pi) {
